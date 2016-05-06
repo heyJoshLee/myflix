@@ -23,7 +23,7 @@ describe VideosController do
       session[:user_id] = Fabricate(:user).id
       futurama = Fabricate(:video, title: "Futurama")
       get :search, search_term: "F"
-      expect(assigns(:results)).to include([futurama])
+      expect(assigns(:results)).to eq([futurama])
     end
 
     describe "it redirects to sign in page for unauthenticated users" do
