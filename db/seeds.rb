@@ -173,3 +173,7 @@ end
 ].each do |movie|
   Video.create(movie)
 end
+
+josh = User.create(full_name: "Josh Lee", password: "password", email: "josh@example.com")
+Review.create(user: josh, video_id: 19, rating: 3, content: "Nice video")
+Review.create(user: josh, video_id: 19, rating: 1, content: "Not such a good video")
