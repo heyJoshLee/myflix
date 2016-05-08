@@ -4,32 +4,33 @@ describe VideosController do
 
   describe "GET show" do
 
-    let(:video) { Video.create(title: "hi there", description: "hi mom")}
+    let(:futurama) { Fabricate(:video, title: "Futurama")}
 
     it "sets @video for authenticated users" do
       session[:user_id] = Fabricate(:user).id
-      get :show, id: video.id
-      expect(assigns(:video)).to eq(video)
+      get :show, id: futurama.id
+      expect(assigns(:video)).to eq(futurama)
     end
 
     it "redirects the user to the  sign in page for unauthenticated users" do
-      get :show, id: video.id
+      get :show, id: futurama.id
       expect(response).to redirect_to sign_in_path
     end
   end
 
   describe "POST search" do
+    let(:futurama) { Fabricate(:video, title: "Futurama")}
+
+
     it "sets @results for authenticated users" do
       session[:user_id] = Fabricate(:user).id
-      futurama = Fabricate(:video, title: "Futurama")
       get :search, search_term: "F"
       expect(assigns(:results)).to eq([futurama])
     end
 
-    describe "it redirects to sign in page for unauthenticated users" do
-      # futurama = Fabricate(:video, title: "Futurama")
-      # get :search, search_term: "rama"
-      # expect(response).to redirect_to sign_in_path
+    it "redirects to sign in page for unauthenticated users" do
+      get :search, search_term: "rama"
+      expect(response).to redirect_to sign_in_path
     end
 
   end
