@@ -6,4 +6,8 @@ class QueueItemsController < ApplicationController
     @queue_items = current_user.queue_items
   end
 
+  def destroy
+    
+  end
+
 end
