@@ -4,6 +4,8 @@ require "spec_helper"
 describe QueueItem do
   it { should belong_to(:user) }
   it { should belong_to(:video) }
+  it { should validate_numericality_of(:position).only_integer}
+
   let(:user) { Fabricate(:user) }
   let(:category) { Fabricate(:category, name: "comedies") }
   let(:video) { Fabricate(:video, title: "My title", category_id: category.id) }
