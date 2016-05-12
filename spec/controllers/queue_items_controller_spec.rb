@@ -176,7 +176,6 @@ describe QueueItemsController do
         post :update_queue, queue_items: [ {id: queue_item1.id, position: 2}, {id: queue_item2.id, position: 3.5 } ]
 
         expect(flash[:error]).to be_present
-
       end
 
       it "does not change the queue_items" do
@@ -184,14 +183,12 @@ describe QueueItemsController do
         post :update_queue, queue_items: [ {id: queue_item1.id, position: 2}, {id: queue_item2.id, position: 3.5 } ]
 
         expect(queue_item1.reload.position).to eq(1)
-
       end
 
     end
 
     it_behaves_like "requires sign in" do
       let(:action) { post :update_queue, queue_items: [ {id: 1, position: 2}] }
-
     end
 
     context "with queue items that do not belong to the current user" do
