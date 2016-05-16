@@ -35,6 +35,7 @@ describe SessionsController do
       it "sets the notice" do
         expect(flash[:notice]).not_to be_blank
       end
+
       
     end
 

@@ -151,8 +151,15 @@ describe QueueItemsController do
 
         expect(alice.queue_items.map(&:position)).to eq([1, 2])
       end
+
+    it_behaves_like "requires sign in" do
+      let(:action) { post :update_queue, queue_items: [ {id: queue_item1.id, position: 2}, {id: queue_item2.id, position: 3 } ] }
     end
-  end
+    
+    end
+
+    
+  end 
 
     context "with invalid inputs" do
       let(:alice) { Fabricate(:user) }
