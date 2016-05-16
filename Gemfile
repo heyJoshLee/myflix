@@ -30,6 +30,7 @@ group :test do
   gem 'shoulda-matchers', '2.7.0'
   gem 'fabrication'
   gem "faker"
+  gem "launchy"
   gem 'vcr', '2.9.3'
 end
 
