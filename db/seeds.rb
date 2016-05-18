@@ -174,6 +174,9 @@ end
   Video.create(movie)
 end
 
-josh = User.create(full_name: "Josh Lee", password: "password", email: "josh@example.com")
-Review.create(user: josh, video_id: 19, rating: 3, content: "Nice video")
-Review.create(user: josh, video_id: 19, rating: 1, content: "Not such a good video")
+user2 = User.create(full_name: "User 2", password: "password", email: "user2@example.com")
+user3 = User.create(full_name: "User 3", password: "password", email: "user3@example.com")
+user4 = User.create(full_name: "User 4", password: "password", email: "user4@example.com")
+user5 = User.create(full_name: "User 5", password: "password", email: "user5@example.com")
+user6 = User.create(full_name: "User 6", password: "password", email: "user6@example.com")
+ 
