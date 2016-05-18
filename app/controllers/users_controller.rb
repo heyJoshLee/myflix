@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    AppMailer.send_welcome_email(@user).deliver
     if @user.save
       flash[:notice] = "Your account was created"
       redirect_to videos_path
