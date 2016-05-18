@@ -9,3 +9,13 @@ end
 def expect_to_see(text)
   expect(page).to have_content text
 end
+
+def click_on_video_on_home_page(video)
+ find("a[href='/videos/#{video.id}']").click
+end
+
+def add_video_to_queue(video)
+  visit home_path
+  click_on_video_on_home_page(video)
+  click_link "+ My Queue"
+end

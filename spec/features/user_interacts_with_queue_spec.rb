@@ -32,11 +32,7 @@ feature "User interacts with the queue" do
 end
 
 
-def add_video_to_queue(video)
-   visit home_path
-  find("a[href='/videos/#{video.id}']").click
-  click_link "+ My Queue"
-end
+
 
 def set_video_position(video, position)
   find("input[data-video-id='#{video.id}']").set(position)
