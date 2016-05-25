@@ -19,3 +19,7 @@ def add_video_to_queue(video)
   click_on_video_on_home_page(video)
   click_link "+ My Queue"
 end
+
+def sign_out
+    visit sign_out_path
+end

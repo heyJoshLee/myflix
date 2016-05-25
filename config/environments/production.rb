@@ -7,6 +7,9 @@ Myflix::Application.configure do
 
   config.serve_static_assets = false
 
+  config.action_mailer.default_url_options = { host: "localhost:3000"}
+
+
   config.assets.compress = true
   config.assets.js_compressor = :uglifier
 
