@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Tokenable
 
   has_many :reviews, -> {order("created_at DESC")}
   has_many :queue_items, -> {order("position")}
@@ -11,10 +12,7 @@ class User < ActiveRecord::Base
   validates :full_name, presence: true, length: {minimum: 5, maximum: 50}
   validates :password, presence: true, length: {minimum: 5, maximum: 20}
 
-
   has_secure_password validations: false
-
-  before_create :generate_token
 
 
   def queued_video?(video)  
@@ -29,9 +27,6 @@ class User < ActiveRecord::Base
     !(self.follows?(another_user) || self == another_user)
   end
 
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-  end
 
   def follow(another_user)
     following_relationships.create(leader: another_user) if can_follow?(another_user)
