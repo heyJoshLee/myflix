@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   has_secure_password validations: false
 
+  before_create :generate_token
+
 
   def queued_video?(video)  
     queue_items.map(&:video).include?(video)
@@ -25,6 +27,10 @@ class User < ActiveRecord::Base
 
   def can_follow?(another_user)
     !(self.follows?(another_user) || self == another_user)
+  end
+
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64
   end
 
 
