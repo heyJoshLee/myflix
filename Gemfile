@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'pg'
 gem "bcrypt-ruby"
 gem "sidekiq"
+gem "sentry-raven"
+
 
 group :development do
   gem 'thin'
