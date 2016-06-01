@@ -13,6 +13,7 @@ gem 'pg'
 gem "bcrypt-ruby"
 gem "sidekiq"
 gem "sentry-raven"
+gem 'unicorn'
 
 
 group :development do
