@@ -14,6 +14,9 @@ gem "bcrypt-ruby"
 gem "sidekiq"
 gem "sentry-raven"
 gem 'unicorn'
+gem "carrierwave"
+gem 'carrierwave-aws'
+gem "mini_magick"
 
 
 group :development do

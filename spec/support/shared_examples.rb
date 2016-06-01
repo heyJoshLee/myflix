@@ -11,6 +11,12 @@ shared_examples "tokenable" do
   it "generates a random token when the user is created" do
     expect(object.token).to be_present
   end
+end
 
-
+shared_examples "requires admin" do
+  it "redirects the regular user to the home path" do
+    session[:user_id] = Fabricate(:user)
+    action
+    expect(response).to redirect_to home_path
+  end
 end
