@@ -2,10 +2,7 @@
   .container
     .row
       .video_large_cover.col-sm-7.col-sm-offset-1
-        - if @video.large_cover_url
-          %img(src="/assets/#{@video.large_cover_url}")
-        - else
-          %img(src="/assets/monk_large.jpg")
+        %img(src="#{@video.large_cover}")
 
       .video_info.col-sm-3
         %header
@@ -13,7 +10,8 @@
           %span Rating: {{4.5/5.0}}
         %p= @video.description 
         .actions
-        = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: 'post', class: "btn btn-default" unless current_user.queued_video?(@video)
+          = link_to "Watch", @video.url, class: "btn btn-primary"
+          = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: 'post', class: "btn btn-default" unless current_user.queued_video?(@video)
 
 %section.reviews.container
   .row
@@ -23,6 +21,9 @@
           %label Rate this video
           = f.select :rating, options_for_video_reviews
           %label Write Review
+          .form-group
+          .row
+            .col-sm-8
           = f.text_area :content, rows: 6, class: "span6"
         %fieldset.actions.clearfix
           %input(type="submit" value="submit" class="btn")
