@@ -40,7 +40,6 @@ describe InvitationsController do
       end
 
       it "sends an email to the recipient" do
-        skip
         expect(ActionMailer::Base.deliveries.last.to).to eq(["joe@example.com"])
       end
 
@@ -68,7 +67,6 @@ describe InvitationsController do
       end
 
       it "does not send an email" do
-        skip
         expect(ActionMailer::Base.deliveries).to be_empty
       end
       it "sets the flash error message" do

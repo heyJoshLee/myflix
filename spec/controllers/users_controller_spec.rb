@@ -10,15 +10,23 @@ describe UsersController do
   end
 
   describe "POST create" do
+    before do
+      StripeWrapper::Charge.stub(:create)
+    end
+    
     context "with valid input" do
 
-      before { post :create, user: Fabricate.attributes_for(:user) }
+      after do
+        ActionMailer::Base.deliveries.clear
+      end
  
       it "creates user" do
+        post :create, user: Fabricate.attributes_for(:user)
         expect(User.count).to eq(1)
       end
 
       it "redirects to the login page" do
+        post :create, user: Fabricate.attributes_for(:user)
         expect(response).to redirect_to videos_path
       end
 
@@ -49,7 +57,10 @@ describe UsersController do
 
     context "with invalid input" do
 
-      before { post :create, user: { password: "password", full_name: "Josh Lee"} }
+      before do 
+        StripeWrapper::Charge.stub(:create)
+        post :create, user: { password: "password", full_name: "Josh Lee"}
+      end
 
       it "does not create the user" do
         expect(User.count).to eq(0)
