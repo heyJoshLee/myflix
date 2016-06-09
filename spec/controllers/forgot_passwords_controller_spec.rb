@@ -17,7 +17,6 @@ describe ForgotPasswordsController do
       end
     end
 
-
     context "with existing email" do
       it "redirect to the forgot password confirmation page" do
         user = Fabricate(:user, email: "alice@example.com")
@@ -26,7 +25,6 @@ describe ForgotPasswordsController do
       end
 
       it "sends out email to the email address" do
-        skip
         user = Fabricate(:user, email: "alice@example.com")
         post :create, email: "alice@example.com"
         expect(ActionMailer::Base.deliveries.last.to). to eq(["alice@example.com"])

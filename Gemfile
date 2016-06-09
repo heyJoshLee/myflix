@@ -17,6 +17,8 @@ gem 'unicorn'
 gem "carrierwave"
 gem 'carrierwave-aws'
 gem "mini_magick"
+gem "stripe"
+gem "figaro"
 
 
 group :development do
@@ -41,6 +43,8 @@ group :test do
   gem "faker"
   gem "launchy"
   gem 'vcr', '2.9.3'
+  gem 'webmock', '1.11.0'
+  gem 'selenium-webdriver'
 end
 
 group :production do
