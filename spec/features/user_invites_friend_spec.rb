@@ -36,10 +36,10 @@ feature "User invites friend" do
     select "7 - July", from: "date_month"
     select "2018", from: "date_year"
     click_button "Sign Up"
-    sleep(3)
   end
 
   def friend_signs_in
+    sleep(5)
     fill_in "Email Address", with: "john@example.com"
     fill_in "Password", with: "password"
     click_button "Sign in"
