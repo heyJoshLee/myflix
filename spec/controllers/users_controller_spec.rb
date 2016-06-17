@@ -90,7 +90,7 @@ describe UsersController do
       end
 
       it "does not send out email with invalid inputs" do
-        post :create, user: {full_name: "j"}
+        post :create, user: {full_name: ""}
         expect(ActionMailer::Base.deliveries).to be_empty
       end
     end

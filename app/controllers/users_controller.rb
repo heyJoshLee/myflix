@@ -36,6 +36,7 @@ def new_with_invitation
       flash[:notice] = "Your account was created"
       redirect_to videos_path
     else
+      flash[:danger] = "Invalid user information. Please check the errors below."
       render :new
     end
     
