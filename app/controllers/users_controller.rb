@@ -30,7 +30,7 @@ def new_with_invitation
       StripeWrapper::Charge.create(
         amount: 999,
         card: params[:stripeToken],
-        description: "Sing up charge for #{@user.email}"
+        description: "Sign up charge for #{@user.email}"
       )
       AppMailer.send_welcome_email(@user).deliver
       flash[:notice] = "Your account was created"
