@@ -10,14 +10,14 @@ feature "User registers", {js: true, vcr: true} do
     fill_in_valid_user_info
     fill_in_valid_card_info
     submit_form
-    expect(page).to have_content("Your account was created")
+    expect(page).to have_content("Welcome to myFlix! You have successfully registered.")
   end
 
   scenario "with valid user info and invalid card" do
     fill_in_valid_user_info
     fill_in_invalid_card_info
     submit_form
-    expect(page).to have_content("The card number is not a valid credit card number")
+    expect(page).to have_content("The card number is not a valid credit card number.")
   end
 
   scenario "with invalid user info and declined card" do

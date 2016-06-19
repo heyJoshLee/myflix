@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to myFlix! You have successfully registered."
       redirect_to sign_in_url
     else
-      flash.now[:danger] = result.error_message
+      flash.now[:error] = result.error_message
       render :new
     end
   end
