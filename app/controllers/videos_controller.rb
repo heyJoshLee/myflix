@@ -1,6 +1,5 @@
 class VideosController < ApplicationController
 
- before_action :set_video, only: [:show]
  before_action :require_user
 
 
@@ -15,18 +14,14 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+    @video = VideoDecorator.decorate(Video.find(params[:id]))
     @review = Review.new
     @reviews = @video.reviews
   end
-
 
  
 
   private
 
-  def set_video
-    @video = Video.find(params[:id])
-  end
 
 end

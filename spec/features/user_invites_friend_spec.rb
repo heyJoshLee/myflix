@@ -28,7 +28,7 @@ feature "User invites friend" do
   def friend_accepts_invitation
     open_email "john@example.com"
     current_email.click_link "Accept this invitation"
-    binding.pry
+    sleep(1)
     fill_in "Password", with: "password"
     fill_in "Full Name", with: "John Doe"
     fill_in "Credit Card Number", with: "4242424242424242"
@@ -39,6 +39,7 @@ feature "User invites friend" do
   end
 
   def friend_signs_in
+    sleep(3)
     fill_in "Email Address", with: "john@example.com"
     fill_in "Password", with: "password"
     click_button "Sign in"

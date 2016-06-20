@@ -15,5 +15,10 @@ class Video < ActiveRecord::Base
     where("title LIKE ?", "%#{term}%").order("created_at DESC")
   end
 
+  def rating
+    reviews.empty? ?  "na " : reviews.map(&:rating).inject(&:+).to_f / reviews.count 
+  end
+
+
 
 end
