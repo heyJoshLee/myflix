@@ -5,5 +5,3 @@
 
 #### TODO
 * Fix Mailgun and emailing functions
-* Push correct version to heroku
-* check video uploading to AWS S3

@@ -21,10 +21,10 @@ feature "User registers", {js: true, vcr: true} do
   end
 
   scenario "with invalid user info and declined card" do
-    skip
     fill_in_valid_user_info
     fill_in_declined_card
     submit_form
+    sleep(1)
     expect(page).to have_content("Your card was declined.")
   end
 
@@ -40,13 +40,15 @@ feature "User registers", {js: true, vcr: true} do
     fill_in_invalid_user_info
     fill_in_invalid_card_info
     submit_form
-    expect(page).to have_content("The card number is not a valid credit card number")
+    sleep(1)
+    expect(page).to have_content("The card number is not a valid credit card number.")
   end
 
   scenario "with invalid user info and declined card" do
     fill_in_invalid_user_info
     fill_in_declined_card
     submit_form
+    sleep(1)
     expect(page).to have_content("Invalid user information. Please check the errors below.")
   end
 
