@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  before_filter :require_user
   before_filter :require_admin
 
   def require_admin
