@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stripe.com/v1/events/evt_18PoT0I8HOATFuBIXGI7Q76L
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.43.0
+      Authorization:
+      - Bearer sk_test_goNOUrBVj5ycZbZXqHZCeKOH
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.43.0","lang":"ruby","lang_version":"2.1.2 p95 (2014-05-08)","platform":"x86_64-darwin13.0","engine":"ruby","publisher":"stripe","uname":"Darwin
+        Joshs-MacBook-Pro.local 14.5.0 Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53
+        PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64 x86_64","hostname":"Joshs-MacBook-Pro.local"}'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 24 Jun 2016 08:19:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2030'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_8hDzWApakwZjTp
+      Stripe-Version:
+      - '2016-03-07'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "evt_18PoT0I8HOATFuBIXGI7Q76L",
+          "object": "event",
+          "api_version": "2016-03-07",
+          "created": 1466752266,
+          "data": {
+            "object": {
+              "id": "ch_18PoSzI8HOATFuBIbvJafHBU",
+              "object": "charge",
+              "amount": 999,
+              "amount_refunded": 0,
+              "application_fee": null,
+              "balance_transaction": "txn_18PoT0I8HOATFuBIZ2lJKVON",
+              "captured": true,
+              "created": 1466752265,
+              "currency": "usd",
+              "customer": "cus_8hCseAkppE3JFe",
+              "description": null,
+              "destination": null,
+              "dispute": null,
+              "failure_code": null,
+              "failure_message": null,
+              "fraud_details": {},
+              "invoice": "in_18PoSzI8HOATFuBIVh0pSzs0",
+              "livemode": false,
+              "metadata": {},
+              "order": null,
+              "paid": true,
+              "receipt_email": null,
+              "receipt_number": null,
+              "refunded": false,
+              "refunds": {
+                "object": "list",
+                "data": [],
+                "has_more": false,
+                "total_count": 0,
+                "url": "/v1/charges/ch_18PoSzI8HOATFuBIbvJafHBU/refunds"
+              },
+              "shipping": null,
+              "source": {
+                "id": "card_18PoSwI8HOATFuBIDiJ7SNhW",
+                "object": "card",
+                "address_city": null,
+                "address_country": null,
+                "address_line1": null,
+                "address_line1_check": null,
+                "address_line2": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_zip_check": null,
+                "brand": "Visa",
+                "country": "US",
+                "customer": "cus_8hCseAkppE3JFe",
+                "cvc_check": "pass",
+                "dynamic_last4": null,
+                "exp_month": 6,
+                "exp_year": 2019,
+                "fingerprint": "MQzk2nWyClMfPHmj",
+                "funding": "credit",
+                "last4": "4242",
+                "metadata": {},
+                "name": null,
+                "tokenization_method": null
+              },
+              "source_transfer": null,
+              "statement_descriptor": null,
+              "status": "succeeded"
+            }
+          },
+          "livemode": false,
+          "pending_webhooks": 0,
+          "request": "req_8hCsL0FMpklISY",
+          "type": "charge.succeeded"
+        }
+    http_version: 
+  recorded_at: Fri, 24 Jun 2016 08:19:21 GMT
+recorded_with: VCR 2.9.3
