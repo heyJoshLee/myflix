@@ -10,6 +10,7 @@ feature "User registers", {js: true, vcr: true} do
     fill_in_valid_user_info
     fill_in_valid_card_info
     submit_form
+    sleep(1)
     expect(page).to have_content("Welcome to myFlix! You have successfully registered.")
   end
 
